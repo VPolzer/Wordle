@@ -8,9 +8,15 @@ def navod(hledane_slovo):
   
 
 def databaze():
-  """Náhodně vybere jedno slovo ze seznamu databaze_slov a vrátí ho"""
-  databaze_slov = ["aroma", "běhat", "citrón", "gesto", "kopat", "viset", "létat", "kotel", "pasta", "boxer", "kapka", "slovo", "ježíš", "koláč", "pošta", "datel", "palec", "ježek", "kočka", "kráva", "fenka", "želva", "pokus", "sopka", "kopec", "ovce"] #databáze hledaných slov. Slova se mohou přidávat a mohou mít různý počet písmen bez dalších úprav programu.
-  hledane_slovo = list(random.choice(databaze_slov)) #náhodně vybere 1 slovo z "databaze_slov" a uloží do "hledame_list" jako seznam např. ["k", "o", "č", "k", "a"]
+  """Náhodně vybere jedno slovo na 5 písmen ze souboru slova.txt a vrátí ho"""
+  #databaze_slov = ["aroma", "běhat", "citrón", "gesto", "kopat", "viset", "létat", "kotel", "pasta", "boxer", "kapka", "slovo", "ježíš", "koláč", "pošta", "datel", "palec", "ježek", "kočka", "kráva", "fenka", "želva", "pokus", "sopka", "kopec", "ovce"] #databáze hledaných slov. Slova se mohou přidávat a mohou mít různý počet písmen bez dalších úprav programu.
+  databaze_slov1=[]
+  with open('slova.txt', 'r') as slova:
+  	databaze_slov = list(slova.read().split('\n'))
+  for slovo in databaze_slov:
+    if len(slovo) == 5:
+      databaze_slov1.append(slovo)
+  hledane_slovo = list(random.choice(databaze_slov1).lower())
   return hledane_slovo
 
 def tip(hledane_slovo):

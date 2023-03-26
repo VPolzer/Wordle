@@ -6,7 +6,7 @@ def main():
   zobrazit_navod = True
   while True:
     hledane_slovo = databaze() #vybere náhodné slovo z databáze slov a uloží do proměnné
-    #print(hledane_slovo)
+    print(hledane_slovo)
     nepotrebna_pismena = [] #proměnná typu seznam
     if zobrazit_navod: # aby se návod tiskunl jen v prvím kole hry 
       navod(hledane_slovo) #vytiskne návod
